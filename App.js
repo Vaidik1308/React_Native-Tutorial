@@ -1,21 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { useState } from 'react'; 
 import { StyleSheet, Text, View,Image } from 'react-native';
+import Cat from './Cat';
 
 export default function App() {
-  const getName = (first,second,third) => {
-    return first + ', ' + second + ', ' + third;
-  };
+  const [isHungry,setIsHungry] = useState(true);
   return (
     <View style={styles.container}>
-      <Text>Hello World</Text>
-      <Text>We are {getName('vaidik','sam','adam')}</Text>
-      <StatusBar style="auto" />
-      <Image
-        source={{
-          uri: 'https://reactnative.dev/docs/assets/p_cat2.png',
-        }}
-        style={{width: 200, height: 200}}
-      />
+      <Cat name="vaidik" isHungry={isHungry} setIsHungry={setIsHungry} />
     </View>
   );
 }
@@ -23,8 +15,12 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'black',
     alignItems: 'center',
+    color:"white",
     justifyContent: 'center',
+    width:'100%',
+    height:'100vh',
   },
+  
 });
